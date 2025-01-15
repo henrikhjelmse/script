@@ -1,10 +1,8 @@
 from PIL import Image
 import pygame
-# ctf extract colors : Färg - Affischproblem 2025 in SäkerhetsSM in sweden.
-# image.png in the same folder :P 
-#
-# step 1, select colors.
-# step 2, press space, then it shows only that color from the image.
+from tkinter import filedialog
+from tkinter import Tk
+
 def display_interactive(image):
     pygame.init()
     width, height = image.size
@@ -78,7 +76,9 @@ def display_interactive(image):
     pygame.quit()
 
 def main():
-    image_path = "image.png"
+    root = Tk()
+    root.withdraw()
+    image_path = filedialog.askopenfilename()
     
     try:
         image = Image.open(image_path)
